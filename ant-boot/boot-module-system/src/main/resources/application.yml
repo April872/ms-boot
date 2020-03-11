@@ -1,0 +1,17 @@
+spring:
+  #是否显示banner，
+  #   console 这是默认方式--在控制台显示
+  #   "off" 关闭banner，这是最简单的方式，注意要添加双引号
+  #   log，使用配置的logger
+  main:
+    banner-mode: "off"
+
+  profiles:
+    active: dev
+swagger:
+  production: false
+  basic:
+    enable: false
+    username: admin
+    password: 123456
+
