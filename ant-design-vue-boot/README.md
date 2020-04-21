@@ -1,4 +1,4 @@
-Ant Design Jeecg Vue
+Ant Design a Vue
 ====
 
 当前最新版本： 2.1.4（发布日期：2020-02-24）
@@ -7,8 +7,8 @@ Overview
 ----
 
 基于 [Ant Design of Vue](https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/) 实现的 Ant Design Pro  Vue 版
-Jeecg-boot 的前段UI框架，采用前后端分离方案，提供强大代码生成器的快速开发平台。
-前端页面代码和后端功能代码一键生成，不需要写任何代码，保持jeecg一贯的强大！！
+a-boot 的前段UI框架，采用前后端分离方案，提供强大代码生成器的快速开发平台。
+前端页面代码和后端功能代码一键生成，不需要写任何代码，保持a一贯的强大！！
 
 
 
@@ -32,8 +32,8 @@ Jeecg-boot 的前段UI框架，采用前后端分离方案，提供强大代码�
 
 - 拉取项目代码
 ```bash
-git clone https://github.com/zhangdaiscott/jeecg-boot.git
-cd  jeecg-boot/ant-design-jeecg-vue
+git clone https://github.com/zhangdaiscott/a-boot.git
+cd  a-boot/ant-design-a-vue
 ```
 
 - 安装依赖
@@ -93,9 +93,9 @@ yarn run lint
 
 - [Vue](https://cn.vuejs.org/v2/guide)
 
-- [路由/菜单说明](https://github.com/zhangdaiscott/jeecg-boot/tree/master/ant-design-jeecg-vue/src/router/README.md)
+- [路由/菜单说明](https://github.com/zhangdaiscott/a-boot/tree/master/ant-design-a-vue/src/router/README.md)
 
-- [ANTD 默认配置项](https://github.com/zhangdaiscott/jeecg-boot/tree/master/ant-design-jeecg-vue/src/defaultSettings.js)
+- [ANTD 默认配置项](https://github.com/zhangdaiscott/a-boot/tree/master/ant-design-a-vue/src/defaultSettings.js)
 
 - 其他待补充...
 

@@ -1,19 +1,20 @@
 package ${bussiPackage}.${entityPackage}.controller;
 
-import QueryGenerator;
+import org.jeecg.common.system.query.QueryGenerator;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import JeecgController;
-import Result;
+import org.jeecg.common.system.base.controller.BaseController;
+import org.jeecg.common.system.base.controller.BaseController;
+import org.jeecg.common.api.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.Arrays;
-import oConvertUtils;
+import org.jeecg.common.util.oConvertUtils;
 <#list subTables as sub>
 import ${bussiPackage}.${entityPackage}.entity.${sub.entityName};
 </#list>
@@ -33,7 +34,7 @@ import ${bussiPackage}.${entityPackage}.service.I${sub.entityName}Service;
 @RestController
 @RequestMapping("/${entityPackage}/${entityName?uncap_first}")
 @Slf4j
-public class ${entityName}Controller extends JeecgController<${entityName}, I${entityName}Service> {
+public class ${entityName}Controller extends BaseController<${entityName}, I${entityName}Service> {
 
 	@Autowired
 	private I${entityName}Service ${entityName?uncap_first}Service;

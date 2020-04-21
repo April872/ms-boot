@@ -41,7 +41,13 @@
     <div class="table-operator">
       <a-button @click="handleAdd" type="primary" icon="plus">新增</a-button>
       <a-button type="primary" icon="download" @click="handleExportXls('device_info')">导出</a-button>
-      <a-upload name="file" :showUploadList="false" :multiple="false" :headers="tokenHeader" :action="importExcelUrl" @change="handleImportExcel">
+      <a-upload 
+        name="file" 
+        :showUploadList="false" 
+        :multiple="false" 
+        :headers="tokenHeader" 
+        :action="importExcelUrl" 
+        @change="handleImportExcel">
         <a-button type="primary" icon="import">导入</a-button>
       </a-upload>
       <a-dropdown v-if="selectedRowKeys.length > 0">
@@ -58,25 +64,36 @@
         <i class="anticon anticon-info-circle ant-alert-icon"></i> 已选择 <a style="font-weight: 600">{{ selectedRowKeys.length }}</a>项
         <a style="margin-left: 24px" @click="onClearSelected">清空</a>
       </div>
-
+      <!-- :rowSelection="{fixed:true,selectedRowKeys: selectedRowKeys, onChange: onSelectChange}" -->
       <a-table
         ref="table"
         size="middle"
         bordered
         rowKey="id"
+        filterMultiple="filterMultiple"
         :columns="columns"
         :dataSource="dataSource"
         :pagination="ipagination"
         :loading="loading"
-        :rowSelection="{fixed:true,selectedRowKeys: selectedRowKeys, onChange: onSelectChange}"
+        :rowSelection="{selectedRowKeys: selectedRowKeys, onChange: onSelectChange, type:'radio'}"
+        :customRow="clickThenCheck"
         @change="handleTableChange">
 
         <template slot="htmlSlot" slot-scope="text">
           <div v-html="text"></div>
         </template>
         <template slot="imgSlot" slot-scope="text">
-          <span v-if="!text" style="font-size: 12px;font-style: italic;">无此图片</span>
-          <img v-else :src="getImgView(text)" height="25px" alt="图片不存在" style="max-width:80px;font-size: 12px;font-style: italic;"/>
+          <a v-if="text" > 
+            <span v-if="!text" style="font-size: 12px;font-style: italic;">无此图片</span>
+            <img
+              v-else
+              :src="getImgView(text)"
+              :preview="getImgView(text)"
+              height="25px"
+              alt="图片不存在"
+              style="max-width:80px;font-size: 12px;font-style: italic;"/>
+          </a>
+          
         </template>
         <template slot="fileSlot" slot-scope="text">
           <span v-if="!text" style="font-size: 12px;font-style: italic;">无此文件</span>
@@ -109,7 +126,13 @@
 
       </a-table>
     </div>
-
+    <!-- table区域-end -->
+    <a-tabs defaultActiveKey="1">
+      <a-tab-pane tab="数据点信息" key="1">
+        <Device-Data-Point-List ref="DeviceDataPointList"></Device-Data-Point-List>
+      </a-tab-pane>
+      
+    </a-tabs>
     <deviceInfo-modal ref="modalForm" @ok="modalFormOk"></deviceInfo-modal>
   </a-card>
 </template>
@@ -118,15 +141,18 @@
 
   import { JeecgListMixin } from '@/mixins/JeecgListMixin'
   import DeviceInfoModal from './modules/DeviceInfoModal'
+  import DeviceDataPointList from './DeviceDataPointList'
+  //import DeviceDataPointModal from './modules/DeviceDataPointModal'
   import JDictSelectTag from '@/components/dict/JDictSelectTag.vue'
-  import {filterMultiDictText} from '@/components/dict/JDictSelectUtil'
+  //import {filterMultiDictText} from '@/components/dict/JDictSelectUtil'
 
   export default {
     name: "DeviceInfoList",
     mixins:[JeecgListMixin],
     components: {
       JDictSelectTag,
-      DeviceInfoModal
+      DeviceInfoModal,
+      DeviceDataPointList
     },
     data () {
       return {
@@ -146,7 +172,10 @@
           {
             title:'设备编号',
             align:"center",
-            dataIndex: 'deviceId'
+            dataIndex: 'deviceId',
+            defaultSortOrder: 'ascend',
+            sorter: true,
+            
           },
           {
             title:'设备名称',
@@ -213,11 +242,42 @@
     },
     methods: {
       initDictConfig(){
-      }
+        
+        
+      },
+      
+      clickThenCheck(record) {
+        return {
+          on: {
+            click: () => {
+              this.onSelectChange(record.id.split(","), [record]);
+            }
+          }
+        };
+      },
+      onSelectChange(selectedRowKeys, selectionRows) {
+        this.selectedRowKeys = selectedRowKeys;
+        this.selectionRows = selectionRows;
+        this.$refs.DeviceDataPointList.getDeviceMain(this.selectionRows[0].deviceId);
+        //this.$refs.jeecgOrderTicketList.getOrderMain(this.selectedRowKeys[0]);
+      },
+      onClearSelected() {
+        this.selectedRowKeys = [];
+        this.selectionRows = [];
+        this.$refs.DeviceDataPointList.queryParam.mainId = null;
+        //this.$refs.jeecgOrderTicketList.queryParam.mainId = null;
+        this.$refs.DeviceDataPointList.loadData();
+        //this.$refs.jeecgOrderTicketList.loadData();
+        this.$refs.DeviceDataPointList.selectedRowKeys = [];
+        this.$refs.DeviceDataPointList.selectionRows = [];
+        //this.$refs.jeecgOrderTicketList.selectedRowKeys = [];
+        //this.$refs.jeecgOrderTicketList.selectionRows = [];
+      },
     }
   }
 </script>
 <style scoped>
   @import '~@assets/less/common.less';
+
   
 </style>

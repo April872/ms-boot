@@ -166,7 +166,7 @@
 
       // update-begin-author:sunjianlei date:20200120 for: 动态更改页面标题
       changeTitle(title) {
-        let projectTitle = "Jeecg-Boot 企业级快速开发平台"
+        let projectTitle = "a-Boot 企业级快速开发平台"
         // 首页特殊处理
         if (this.$route.path === indexKey) {
           document.title = projectTitle
@@ -380,11 +380,11 @@
     }
 
   }
-
+  
   .ant-tabs.ant-tabs-card > .ant-tabs-bar {
     .ant-tabs-tab {
       border: none !important;
-      border-bottom: 1px solid transparent !important;
+      border-bottom: 2px solid transparent !important;
     }
     .ant-tabs-tab-active {
       border-color: @primary-color!important;

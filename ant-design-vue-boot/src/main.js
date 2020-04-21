@@ -13,7 +13,7 @@ import 'ant-design-vue/dist/antd.less';  // or 'ant-design-vue/dist/antd.less'
 import '@/permission' // permission control
 import '@/utils/filter' // base filter
 import Print from 'vue-print-nb-jeecg'
-/*import '@babel/polyfill'*/
+import '@babel/polyfill'
 import VueApexCharts from 'vue-apexcharts'
 
 import preview from 'vue-photo-preview'
@@ -39,7 +39,7 @@ import config from '@/defaultSettings'
 import JDictSelectTag from './components/dict/index.js'
 import hasPermission from '@/utils/hasPermission'
 import vueBus from '@/utils/vueBus';
-import JeecgComponents from '@/components/jeecg/index'
+import jeecgComponents from '@/components/jeecg/index'
 
 Vue.config.productionTip = false
 Vue.use(Storage, config.storageOptions)
@@ -53,7 +53,7 @@ Vue.use(VueApexCharts)
 Vue.component('apexchart', VueApexCharts)
 Vue.use(preview)
 Vue.use(vueBus);
-Vue.use(JeecgComponents);
+Vue.use(jeecgComponents);
 
 new Vue({
   router,

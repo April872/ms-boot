@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 /**
  * @Description: device_info
- * @Author: boot
- * @Date:   2020-03-10
+ * @Author: ant-boot
+ * @Date:   2020-03-12
  * @Version: V1.0
  */
 @Service

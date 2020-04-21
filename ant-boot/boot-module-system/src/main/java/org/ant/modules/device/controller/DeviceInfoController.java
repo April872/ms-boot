@@ -6,12 +6,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.ant.modules.device.entity.DeviceInfo;
+import org.ant.modules.device.service.IDeviceInfoService;
 import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.aspect.annotation.AutoLog;
 import org.jeecg.common.system.base.controller.BaseController;
 import org.jeecg.common.system.query.QueryGenerator;
-import org.ant.modules.device.entity.DeviceInfo;
-import org.ant.modules.device.service.IDeviceInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,11 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
+import java.util.List;
 
- /**
+/**
  * @Description: device_info
- * @Author: boot
- * @Date:   2020-03-10
+ * @Author: ant-boot
+ * @Date:   2020-03-12
  * @Version: V1.0
  */
 @Api(tags="device_info")
@@ -33,7 +34,8 @@ import java.util.Arrays;
 public class DeviceInfoController extends BaseController<DeviceInfo, IDeviceInfoService> {
 	@Autowired
 	private IDeviceInfoService deviceInfoService;
-	
+
+
 	/**
 	 * 分页列表查询
 	 *
@@ -54,6 +56,26 @@ public class DeviceInfoController extends BaseController<DeviceInfo, IDeviceInfo
 		Page<DeviceInfo> page = new Page<DeviceInfo>(pageNo, pageSize);
 		IPage<DeviceInfo> pageList = deviceInfoService.page(page, queryWrapper);
 		return Result.ok(pageList);
+	}
+
+	/**
+	 * 查询数据 查出所有设备数据格式响应给前端
+	 *
+	 * @return
+	 */
+	@AutoLog(value = "device_info-列表查询")
+	@ApiOperation(value="device_info-列表查询", notes="device_info-列表查询")
+	@RequestMapping(value = "/queryList", method = RequestMethod.GET)
+	public Result<List<DeviceInfo>> queryList() {
+		Result<List<DeviceInfo>> result = new Result<>();
+		try {
+			List<DeviceInfo> list = deviceInfoService.list();
+			result.setResult(list);
+			result.setSuccess(true);
+		} catch (Exception e) {
+			log.error(e.getMessage(),e);
+		}
+		return result;
 	}
 	
 	/**

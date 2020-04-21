@@ -8,10 +8,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Result;
-import QueryGenerator;
-import AutoLog;
-import oConvertUtils;
+import org.jeecg.common.api.vo.Result;
+import org.jeecg.common.system.base.controller.BaseController;
+import org.jeecg.common.system.query.QueryGenerator;
+import org.jeecg.common.aspect.annotation.AutoLog;
+import org.jeecg.common.util.oConvertUtils;
 import ${bussiPackage}.${entityPackage}.entity.${entityName};
 import ${bussiPackage}.${entityPackage}.service.I${entityName}Service;
 import java.util.Date;
@@ -19,7 +20,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
-import JeecgController;
+import org.jeecg.common.system.base.controller.BaseController;
 import org.jeecgframework.poi.excel.ExcelImportUtil;
 import org.jeecgframework.poi.excel.def.NormalExcelConstants;
 import org.jeecgframework.poi.excel.entity.ExportParams;
@@ -45,7 +46,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(tags="${tableVo.ftlDescription}")
 @RestController
 @RequestMapping("/${entityPackage}/${entityName?uncap_first}")
-public class ${entityName}Controller extends JeecgController<${entityName}, I${entityName}Service> {
+public class ${entityName}Controller extends BaseController<${entityName}, I${entityName}Service> {
 	@Autowired
 	private I${entityName}Service ${entityName?uncap_first}Service;
 	

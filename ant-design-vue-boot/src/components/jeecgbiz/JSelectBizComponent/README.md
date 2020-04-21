@@ -1,11 +1,11 @@
 # JSelectBizComponent
 
-Jeecg 选择组件的公共可复用组件
+a 选择组件的公共可复用组件
 
 ## 引用方式
 
 ```js
-import JSelectBizComponent from '@/src/components/jeecgbiz/JSelectBizComponent'
+import JSelectBizComponent from '@/src/components/abiz/JSelectBizComponent'
 
 export default {
   components: { JSelectBizComponent }

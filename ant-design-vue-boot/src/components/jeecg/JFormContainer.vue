@@ -1,5 +1,5 @@
 <template>
-  <div :class="disabled?'jeecg-form-container-disabled':''">
+  <div :class="disabled?'a-form-container-disabled':''">
     <fieldset disabled>
       <slot name="detail"></slot>
     </fieldset>
@@ -35,14 +35,14 @@
   }
 </script>
 <style>
-  .jeecg-form-container-disabled{
+  .a-form-container-disabled{
     cursor: not-allowed;
   }
-  .jeecg-form-container-disabled fieldset[disabled] {
+  .a-form-container-disabled fieldset[disabled] {
     -ms-pointer-events: none;
     pointer-events: none;
   }
-  .jeecg-form-container-disabled .ant-select{
+  .a-form-container-disabled .ant-select{
     -ms-pointer-events: none;
     pointer-events: none;
   }

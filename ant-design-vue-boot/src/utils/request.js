@@ -13,7 +13,7 @@ console.log("baseProject=",baseProject)
 
 // 创建 axios 实例
 const service = axios.create({
-  //baseURL: '/jeecg-boot',
+  //baseURL: '/a-boot',
   baseURL: baseProject, // api base_url
   timeout: 9000 // 请求超时时间
 })

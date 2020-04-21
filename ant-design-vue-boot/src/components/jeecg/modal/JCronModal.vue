@@ -850,7 +850,7 @@
             background-color: #f5f7fa!important;
             margin-right: 0px!important;
             border-radius: 0;
-            line-height: 38px; 
+            line-height: 30px; 
             border: 1px solid transparent!important;
             border-bottom: 1px solid #e6ebf5!important;
           }

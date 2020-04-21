@@ -1,9 +1,9 @@
 import { getAction,deleteAction,putAction,postAction} from '@/api/manage'
 
 ////根路径
-// const doMian = "/jeecg-boot/";
+// const doMian = "/a-boot/";
 ////图片预览请求地址
-// const imgView = "http://localhost:8080/jeecg-boot/sys/common/view/";
+// const imgView = "http://localhost:8080/a-boot/sys/common/view/";
 
 //角色管理
 const addRole = (params)=>postAction("/sys/role/add",params);
@@ -49,6 +49,12 @@ const queryPermissionsByUser = (params)=>getAction("/sys/permission/getUserPermi
 const loadAllRoleIds = (params)=>getAction("/sys/permission/loadAllRoleIds",params);
 const getPermissionRuleList = (params)=>getAction("/sys/permission/getPermRuleListByPermId",params);
 const queryPermissionRule = (params)=>getAction("/sys/permission/queryPermissionRule",params);
+
+//设备管理
+const queryDeviceList = (params)=>getAction("/device/deviceInfo/queryList",params);
+const queryDeviceDataList = (params)=>getAction("/device/deviceDataPoint/queryList",params);
+const queryDeviceDataListByDevice = (params)=>getAction("/device/deviceDataPoint/listByDevice",params);
+
 
 // 部门管理
 const queryDepartTreeList = (params)=>getAction("/sys/sysDepart/queryTreeList",params);
@@ -130,6 +136,9 @@ export {
   loadAllRoleIds,
   getPermissionRuleList,
   queryPermissionRule,
+  queryDeviceList,
+  queryDeviceDataList,
+  queryDeviceDataListByDevice,
   queryDepartTreeList,
   queryIdTree,
   queryParentName,

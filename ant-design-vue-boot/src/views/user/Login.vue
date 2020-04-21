@@ -11,7 +11,7 @@
               size="large"
               v-decorator="['username',{initialValue:'admin', rules: validatorRules.username.rules}]"
               type="text"
-              placeholder="请输入帐户名 / jeecg">
+              placeholder="请输入帐户名 / a">
               <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
             </a-input>
           </a-form-item>

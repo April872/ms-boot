@@ -46,7 +46,7 @@
 script内需引入jdate
 ```vue
 <script>
-  import JDate from '@/components/jeecg/JDate'
+  import JDate from '@/components/jeecgeecg/JDate'
   export default {
     name: "demo",
     components: {
@@ -88,9 +88,9 @@ fieldList结构示例：
 ----
 1.import之后再components之内声明
 ```vue
-import JSuperQuery from '@/components/jeecg/JSuperQuery.vue';
+import JSuperQuery from '@/components/jeecgeecg/JSuperQuery.vue';
   export default {
-    name: "JeecgDemoList",
+    name: "aDemoList",
     components: {
       JSuperQuery
     },
@@ -222,7 +222,7 @@ this.$refs.superQueryModal.show();
 ## 引入组件
 
 ```js
-import JTreeTable from '@/components/jeecg/JTreeTable'
+import JTreeTable from '@/components/jeecgeecg/JTreeTable'
 export default {
   components: { JTreeTable }
 }
@@ -251,7 +251,7 @@ export default {
 </template>
 
 <script>
-  import JTreeTable from '@/components/jeecg/JTreeTable'
+  import JTreeTable from '@/components/jeecgeecg/JTreeTable'
 
   export default {
     name: 'AsyncTreeTable',
@@ -308,7 +308,7 @@ export default {
 </template>
 
 <script>
-  import JCheckbox from '@/components/jeecg/JCheckbox'
+  import JCheckbox from '@/components/jeecgeecg/JCheckbox'
   export default {
     components: {JCheckbox},
     data() {
@@ -364,7 +364,7 @@ export default {
 </template>
 
 <script>
-  import JCodeEditor from '@/components/jeecg/JCodeEditor'
+  import JCodeEditor from '@/components/jeecgeecg/JCodeEditor'
   export default {
     components: {JCodeEditor},
     data() {
@@ -409,7 +409,7 @@ export default {
 </template>
 
 <script>
-  import JCodeEditor from '@/components/jeecg/JCodeEditor'
+  import JCodeEditor from '@/components/jeecgeecg/JCodeEditor'
   export default {
     components: {JCodeEditor},
     data() {
@@ -448,7 +448,7 @@ online用 实际开发请使用components/dict/JMultiSelectTag
 </template>
 
 <script>
-  import JSlider from '@/components/jeecg/JSlider'
+  import JSlider from '@/components/jeecgeecg/JSlider'
   export default {
     components: {JSlider},
     data() {
@@ -497,7 +497,7 @@ online用 实际开发请使用components/dict/JMultiSelectTag
 </template>
 
 <script>
-  import JTreeSelect from '@/components/jeecg/JTreeSelect'
+  import JTreeSelect from '@/components/jeecgeecg/JTreeSelect'
   export default {
     components: {JTreeSelect},
     data() {

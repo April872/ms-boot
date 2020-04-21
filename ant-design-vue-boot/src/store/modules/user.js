@@ -120,7 +120,7 @@ const user = {
           sessionStorage.setItem(USER_AUTH,JSON.stringify(authData));
           sessionStorage.setItem(SYS_BUTTON_AUTH,JSON.stringify(allAuthData));
           if (menuData && menuData.length > 0) {
-            //update--begin--autor:qinfeng-----date:20200109------for：JEECG-63 一级菜单的子菜单全部是隐藏路由，则一级菜单不显示------
+            //update--begin--autor:qinfeng-----date:20200109------for：a-63 一级菜单的子菜单全部是隐藏路由，则一级菜单不显示------
             menuData.forEach((item, index) => {
               if (item["children"]) {
                 let hasChildrenMenu = item["children"].filter((i) => {
@@ -132,7 +132,7 @@ const user = {
               }
             })
             console.log(" menu show json ", menuData)
-            //update--end--autor:qinfeng-----date:20200109------for：JEECG-63 一级菜单的子菜单全部是隐藏路由，则一级菜单不显示------
+            //update--end--autor:qinfeng-----date:20200109------for：a-63 一级菜单的子菜单全部是隐藏路由，则一级菜单不显示------
             commit('SET_PERMISSIONLIST', menuData)
           } else {
             reject('getPermissionList: permissions must be a non-null array !')
